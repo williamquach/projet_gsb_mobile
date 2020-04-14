@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProjetGSB.Mobile.MainPage" Title="Dosage antibiotique">
+    <!--<ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="DodgerBlue" />
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="TextColor" Value="Blue" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
+            </Grid>
+            <!-- Place new controls here -->
+            
+            <Label Text="Les catégories" 
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"   FontSize="50" TextColor="Black" Grid.Row="0" FontAttributes="None"/>
+            <Label Text="Sélectionnez une catégorie : " FontSize="Large" Grid.Row="1" TextColor="DodgerBlue" FontAttributes="Bold"></Label>
+            <Button Text="Rechercher un médicament" Grid.Row="2" x:Name="btnRechercheAntibio" Clicked="btnRechercheAntibio_Clicked"></Button>
+            <ListView x:Name="lvCategories" ItemTapped="lvCategories_ItemTapped" Grid.Row="3">
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

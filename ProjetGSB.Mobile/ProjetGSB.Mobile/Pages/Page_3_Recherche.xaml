@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ProjetGSB.Mobile.Pages.Page_3_Recherche" Title="Recherche">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Label Grid.Row="0" Text="Rechercher un antibiotique" 
+               HorizontalOptions="CenterAndExpand" FontSize="30"
+               VerticalOptions="CenterAndExpand" TextColor="Black" FontAttributes="None"/>
+            <Entry Grid.Row="1" Placeholder="Nom de l'antibiotique..." x:Name="txtRecherche" TextChanged="txtRecherche_TextChanged"></Entry>
+            <ListView Grid.Row="2" x:Name="lv_Antibio_Recherches" ItemTapped="lv_Antibio_Recherches_ItemTapped">
+                
+            </ListView>
+            <Entry Grid.Row="3" Grid.Column="0" x:Name="txtPoidsR"  Placeholder="Entrez un poids (en kg)" Keyboard="Numeric" IsVisible="False"></Entry>
+            <Button Grid.Row ="4"  Text="Obtenir la prescription" x:Name="btnPrescription" Clicked="btnPrescription_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
