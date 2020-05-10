@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using ProjetGSB.Mobile.ClassesMetier;
 using System.Net.Http;
+using ProjetGSB.Mobile.Pages;
 
 namespace ProjetGSB.Mobile
 {
@@ -26,16 +27,10 @@ namespace ProjetGSB.Mobile
         DataAntibio da;
         private async void Charger()
         {
-            //HttpClient wc = new HttpClient();
-            //HttpClient wc1 = new HttpClient();
-            //await DataAntibio.Initialisation(wc);
-
-            //await DataAntibio.test(wc1);
             da = new DataAntibio();
-            //await da.test();
             await da.SetLesCategories();
             await ChargerAntibios();
-            lvCategories.ItemsSource = da.GetLesCategories();
+            lvCategories.ItemsSource = da.lesCategories;
 
         }
         private async Task ChargerAntibios()
@@ -47,7 +42,7 @@ namespace ProjetGSB.Mobile
             if (lvCategories.SelectedItem != null)
             {
                 string libCategorie = (lvCategories.SelectedItem as Categorie).Libelle; ;
-                await Navigation.PushAsync(new ProjetGSB.Mobile.Pages.Page_2_Antibio(libCategorie,da), true);
+                await Navigation.PushAsync(new Page_2_Antibio(libCategorie,da), true);
             }
         }
 

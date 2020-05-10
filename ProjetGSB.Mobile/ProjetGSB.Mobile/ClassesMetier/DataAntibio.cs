@@ -14,12 +14,11 @@ namespace ProjetGSB.Mobile.ClassesMetier
         public HttpClient wc;
         public DataAntibio()
         {
-            lesAntibiotiques = new List<Antibio>();
-            lesCategories = new List<Categorie>();
             wc = new HttpClient();
         }
         public async Task SetLesCategories()
         {
+            lesCategories = new List<Categorie>();
             // récupération des catégories
             var reponse = await wc.GetStringAsync("http://10.0.2.2/api_gsb_antibio/getallcategories.php");
             var donnees = JsonConvert.DeserializeObject<dynamic>(reponse);
@@ -37,11 +36,11 @@ namespace ProjetGSB.Mobile.ClassesMetier
         }
         public async Task SetLesAntibiotiques()
         {
+            lesAntibiotiques = new List<Antibio>();
             // récupération des antibiotiques
             var reponse2 = await wc.GetStringAsync("http://10.0.2.2/api_gsb_antibio/getallantibio.php");
             var donnees = JsonConvert.DeserializeObject<dynamic>(reponse2);
             var list = donnees["results"]["antibiotique"];
-            int test = list.Count;
             foreach (var item in list)
             {
                 if(item["doseParPrise"].Value != null && item["doseParKg"].Value == null)
@@ -71,11 +70,6 @@ namespace ProjetGSB.Mobile.ClassesMetier
                     lesAntibiotiques.Add(unABParKilo);
                 }
             }
-        }
-            
-        public List<Categorie> GetLesCategories()
-        {
-            return lesCategories;
         }
         public List<Antibio> GetAntibiotiqueUneCateg(string libelleCategorie)
         {
